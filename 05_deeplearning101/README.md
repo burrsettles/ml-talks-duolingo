@@ -8,7 +8,7 @@ This directory contains neural network implementations for the [MNIST](https://e
 
 ## Suggested exercises:
 
-Here are several lab exercises designed to get you used to doing more with TensorFlow and deep learning in general.
+Here are several lab exercises designed to get you used to doing more with TensorFlow and deep learning in general. 
 
 
 ### 1. Add more hidden layers.
@@ -19,18 +19,20 @@ Using `mnist_tf_fancy.py` as a starting point, modify the `-n` option to take a 
 - `-n 32` trains a 2-layer network with 32 hidden units (identical to current implementation)
 - `-n 258,128,64,32` trains a 5-layer network with layers of size 258, 128, 63, and 32 hidden units respectively. The input layer connects to the first hidden layer (258 units) and the last hidden layer (32 units) connects to the output layer.
 
-_Hint:_ try creating a list of `tf.Variable`s to hold the weights and biases of all the layers. :)
+_Hint:_ Try using a list of `tf.Variable` objects to hold the weights and biases of all the layers in one data structure. :)
 
 
-### 2. Train from a CSV data set.
+### 2. Train from a data in a CSV file.
 
-Further modify the script to not use the hard-coded, built-in MNIST data set. Instead, add a CSV file command line argument where the first column is the output label, and all other columns are input features. If a CSV file has boolean (i.e., TRUE/FALSE) or cateogiral features (i.e., strings) you will have to figure out how to convert those to real values for the input tensor representation (e.g., `float32`).
+Further modify the script to not use the MNIST data set. Instead, add a command line argument for a CSV file where the first column is the output label, and all other columns are input features. If a CSV file has boolean (i.e., TRUE/FALSE) or categorical features (i.e., strings) you will have to figure out how to convert those to real number values for the input tensor representation (e.g., `float32`).
 
-Take note of the type of the first column (label): real numbers, binary classification, or multiclass. Be sure to use the appropriate loss function to minimize for each type.
+_Hint:_ Boolean inputs can be coded as `1.0`/`0.0` for true/false. Categorical values could be split into different input nodes (one for each possibility), just as we have to do for output nodes when there are more than 2 possible values.
+
+Take note of the label type (first column): real numbers, binary, or non-binary classification. Be sure to use the appropriate loss function to minimize for the detected label type!
 
 
 ### 3. Experiment with your own data set!
 
-Create a CSV file of data relevant to your job at Duolingo that you think is interesting. That is, you want to predict some value (`T`) as a function of various input variables (`X`).
+Create a CSV file of data relevant to your Duolingo team or job that you think is interesting. That is, you want to predict some value (`T`, in the first column) as a function of various input variables (`X`, in the remaining columns).
 
-Experiment with different network architectures (layers, activation functions, optimizers, regularization, etc.). Feel free to share your results and I might present them in the next Deep Learning talk....
+Experiment with different network architectures (layers, activation functions, optimizers, regularization, etc.). Feel free to share your results! I might present them in the next Deep Learning talk....
